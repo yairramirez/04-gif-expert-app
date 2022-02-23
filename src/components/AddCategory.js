@@ -5,17 +5,17 @@ const AddCategory = ({ setCategories }) => {
 
   const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (evt) => {
+  const handleInputChange = ( evt ) => {
     setInputValue( evt.target.value );
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    if ( inputValue.trim().length > 2 )
-      setCategories( categories => [...categories, inputValue] );
-
-    
+    if ( inputValue.trim().length > 2 ) {
+      setCategories( categories => [inputValue, ...categories] );
+      setInputValue('')
+    }
   } 
 
   return (
